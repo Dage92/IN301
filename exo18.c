@@ -36,7 +36,7 @@ void affiche(tableau t)		//E)
 
 int produit(tableau t)		//F)
 {
-	int i;
+	int i;T
 	int res=1;
 	for(i=0; i<t.taille; i++)
 	{
