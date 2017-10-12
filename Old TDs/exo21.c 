@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct element
+{
+	char Char;
+	struct element* suiv;
+};
+typedef struct element Element;
+typedef struct element* ListeC;
+
+ListeC ajoutChar_debut(ListeC l, char c)
+{
+	ListeC p=l;
+	if(l == NULL)
+	{
+		ListeC tmp = malloc(sizeof(Element));
+		tmp->Char = c;
+		tmp->suiv = l;
+		l = tmp;
+	}
+	else
+    l->suiv = ajoutChar_debut(l->suiv, c);
+	return p;
+}
+
+int est_vide(ListeC l)
+{
+	return(l==NULL);
+}
+	
+ListeC ajoutChar_fin(ListeC l, char c)
+{
+	ListeC tmp=l;
+	if (est_vide(l))
+	{
+		return ajoutChar_debut(l,c);
+	}
+	while (tmp->suiv!=NULL)
+	{
+		tmp=tmp->suiv;
+	}
+	ListeC new=malloc(sizeof(Element));
+	new->Char=c;
+	new->suiv=NULL;
+	tmp->suiv=new;
+	return l;
+}
+
+void afficheChaine(ListeC l)
+{
+	if(l == NULL)
+	{
+		printf("\n");
+	}
+	else
+	{
+		printf("%d ", l->Char);
+		afficheChaine(l->suiv);
+	}
+}
+
+ListeC ajoutChaine(char *t, ListeC l)
+{
+	if(t[0]=='\0')
+	{
+		return l;
+	}
+	l=ajoutChar_fin(l,t[0]);
+	l=ajoutChaine(t+1,l);
+}
+
+int main(int argc, char **argv)
+{
+	
+	return 0;
+}
+
