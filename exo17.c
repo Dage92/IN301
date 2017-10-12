@@ -23,23 +23,23 @@ int main()
 	int xint;
 	double xdouble;
 	
-	printf("Taille d'un char: %ld bytes\n",sizeof(xchar));
-	printf("Taille d'un int: %ld bytes\n",sizeof(xint));
-	printf("Taille d'un double: %ld bytes\n",sizeof(xdouble));
-	printf("Taille d'un char*: %ld bytes\n",sizeof(char*));			//Les pointeurs donne une taille qui recouvre la memoire: 4 sur 32bit et 8 sur 64bit.
-	printf("Taille de void*: %ld bytes\n",sizeof(void*));
-	printf("Taille de int*: %ld bytes\n",sizeof(int*));
-	printf("Taille de double*: %ld bytes\n",sizeof(double*));
-	printf("Taille de int**: %ld bytes\n",sizeof(int**));
-	printf("Taille de x[10]: %ld bytes\n",sizeof(int[10]));			//donne la taille d'un seul element.
-	printf("Taille de y[7][3]: %ld bytes\n",sizeof(char[7][3]));		
+	printf("Taille d'un char: %ld octets\n",sizeof(xchar));
+	printf("Taille d'un int: %ld octets\n",sizeof(xint));
+	printf("Taille d'un double: %ld octets\n",sizeof(xdouble));
+	printf("Taille d'un char*: %ld octets\n",sizeof(char*));			//Les pointeurs donne une taille qui recouvre la memoire: 4 sur 32bit et 8 sur 64bit.
+	printf("Taille de void*: %ld octets\n",sizeof(void*));
+	printf("Taille de int*: %ld octets\n",sizeof(int*));
+	printf("Taille de double*: %ld octets\n",sizeof(double*));
+	printf("Taille de int**: %ld octets\n",sizeof(int**));
+	printf("Taille de int[10]: %ld octets\n",sizeof(int[10]));			//donne la taille d'un seul element.
+	printf("Taille de char[7][3]: %ld octets\n",sizeof(char[7][3]));		
 	
 	char tab[10];
-	printf("Taille de tab: %ld bytes\n",sizeof(tab));
-	printf("Taille de tab[0]: %ld bytes\n",sizeof(tab[0]));
-	printf("Taille de &tab[0]: %ld bytes\n",sizeof(&tab[0]));
-	printf("Taille de *&tab: %ld bytes\n",sizeof(*&tab));
-	printf("Taille de *&tab[0]: %ld bytes\n",sizeof(*&tab[0]));
+	printf("Taille de tab: %ld octets\n",sizeof(tab));
+	printf("Taille de tab[0]: %ld octets\n",sizeof(tab[0]));
+	printf("Taille de &tab[0]: %ld octets\n",sizeof(&tab[0]));
+	printf("Taille de *&tab: %ld octets\n",sizeof(*&tab));
+	printf("Taille de *&tab[0]: %ld octets\n",sizeof(*&tab[0]));
 	
 	//b
 	printf("\nb)\n");
