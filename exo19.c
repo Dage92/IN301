@@ -72,6 +72,10 @@ liste ajout_fin(liste l, int x)
 	return l;
 }
 
+liste ajout_trie(liste l, int x)
+{
+	
+
 int main()
 {
 	srand(time(NULL));
