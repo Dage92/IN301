@@ -1,7 +1,7 @@
 NOM=PROJET_IN301
 
 test: slider
-	./slider niveau_01.slider
+	./slider niveau_001.slider
 
 # Edition de liens
 slider: slider.o lire_ecrire.o afficher.o
