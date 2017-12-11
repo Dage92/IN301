@@ -3,7 +3,7 @@
 #include "mes_types.h"
 
 
-SLIDER lire_fichier(char * argv[])
+SLIDER lire_fichier(int argc, char * argv[])
 {
 	FILE * F = fopen(argv[1] , "r");
 	
@@ -14,21 +14,22 @@ SLIDER lire_fichier(char * argv[])
 		printf("Erreur lors de l'ouverture de %s\n", argv[1]);
 	}
 	
+	char c;
 	SLIDER S;
 	
-	fscanf(F, "%d", S.L);
-	fscanf(F, "%d", S.H);
-	fscanf(F, "%d", S.x_slider);
-	fscanf(F, "%d", S.y_slider);
-	fscanf(F, "%d", S.x_exit);
-	fscanf(F, "%d", S.y_exit);
-	fscanf(F, "%d", S.N);
+	fscanf(F, "%d", &S.L);
+	fscanf(F, "%d", &S.H);
+	fscanf(F, "%d", &S.x_slider);
+	fscanf(F, "%d", &S.y_slider);
+	fscanf(F, "%d", &S.x_exit);
+	fscanf(F, "%d", &S.y_exit);
+	fscanf(F, "%d", &S.N);
 	
-	while(fgetc(F) != EOF)
+	while((c = fgetc(F)) != EOF)
 	{
-		fscanf(F, "%d", S.xi);
-		fscanf(F, "%d", S.yi);
-		fscanf(F, "%d", S.di);
+		S.xi = c;
+		S.yi = c;
+		S.di = c;
 	}
 	printf("\n");
 	
@@ -37,5 +38,17 @@ SLIDER lire_fichier(char * argv[])
 }
 
 
-void ecrire_fichier(SLIDER S, char*nom) {
+void ecrire_fichier(SLIDER S, char * nom)
+{
+	/*fputc(';', F); fputc(' ', F); fputc('1', F);
+	int y, x;
+	for(y = 0; y < S.largeur; y++)
+	{
+		for(x = 0; x < S.hauteur; x++)
+		{
+			fputc(S.plateau[y][x], F);
+		}
+		fputc('\n', F);
+	}
+	fputc(';', F);fputc(' ', F);*/
 }

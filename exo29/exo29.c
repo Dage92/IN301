@@ -37,7 +37,7 @@ int main (int argc, char **argv)
 	fscanf(f,"%d",&mon_image.h);
 	fscanf(f,"%d",&mon_image.coul);
 	
-	mon_image.image = (pixel**)malloc(sizeof(pixel*)*mon_image.l
+	mon_image.image = (pixel**)malloc(sizeof(pixel*)*mon_image.l);
 	for(int i=0; i<mon_image.l; i++)
 	{
 		mon_image.image[i] = (pixel *)malloc(sizeof(pixel)*mon_image.h);
