@@ -14,7 +14,6 @@ SLIDER lire_fichier(char * nom)
 		printf("Erreur lors de l'ouverture de %s\n", "niveau_001.slider");
 	}
 	
-	char c;
 	wall W;
 	SLIDER S;
 	
