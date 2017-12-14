@@ -3,19 +3,22 @@
 #include "mes_types.h"
 
 
-SLIDER lire_fichier(int argc, char * argv[])
+SLIDER lire_fichier(char * nom)
 {
-	FILE * F = fopen(argv[1] , "r");
+	FILE * F = fopen("niveau_001.slider", "r");
 	
-	printf("Nom du niveau = %s\n",argv[1]);
+	printf("Nom du niveau = %s\n","niveau_001.slider");
 	
 	if(F == NULL)
 	{
-		printf("Erreur lors de l'ouverture de %s\n", argv[1]);
+		printf("Erreur lors de l'ouverture de %s\n", "niveau_001.slider");
 	}
 	
 	char c;
+	wall W;
 	SLIDER S;
+	
+	W = creer_liste_vide();
 	
 	fscanf(F, "%d", &S.L);
 	fscanf(F, "%d", &S.H);
@@ -25,13 +28,24 @@ SLIDER lire_fichier(int argc, char * argv[])
 	fscanf(F, "%d", &S.y_exit);
 	fscanf(F, "%d", &S.N);
 	
-	while((c = fgetc(F)) != EOF)
+	if (S.N == 0)
 	{
-		S.xi = c;
-		S.yi = c;
-		S.di = c;
+		return S;
 	}
-	printf("\n");
+	
+	else
+	{
+		for(i=0; i<S.N; i++)
+		{
+			fscanf(F, "%d", &W.x);
+			W = ajout_debut(W, W.x);
+			fscanf(F, "%d", &W.y)
+			W = ajout_debut(W, W.y);
+			fscanf(F, "%d", &W.d)
+			W = ajout_debut(W, W.d);
+			printf("\n");
+		}
+	}
 	
 	return S;
 	fclose(F);
