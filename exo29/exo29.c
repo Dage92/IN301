@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <uvsqgraphics.h>
 
 typedef struct Pixel{
 	int r;
@@ -31,39 +30,39 @@ int main (int argc, char **argv)
 		return 2;
 	}
 	
-	img mon_image;
+	img mi;
 	fscanf(f,"P3");
-	fscanf(f,"%d",&mon_image.l);
-	fscanf(f,"%d",&mon_image.h);
-	fscanf(f,"%d",&mon_image.coul);
+	fscanf(f,"%d",&mi.l);
+	fscanf(f,"%d",&mi.h);
+	fscanf(f,"%d",&mi.coul);
 	
-	mon_image.image = (pixel**)malloc(sizeof(pixel*)*mon_image.l);
-	for(int i=0; i<mon_image.l; i++)
+	mi.image = (pixel**)malloc(sizeof(pixel*)*mi.l);
+	for(int i=0; i<mi.l; i++)
 	{
-		mon_image.image[i] = (pixel *)malloc(sizeof(pixel)*mon_image.h);
+		mi.image[i] = (pixel *)malloc(sizeof(pixel)*mi.h);
 	}
 	
-	for(int i=0; i<mon_image.h;j++)
+	for(int i=0; i<mi.h;j++)
 	{
-		for(int j=0;j<mon_image.j;j++)
+		for(int j=0;j<mi.j;j++)
 		{
-			fscanf(f,"%d",&mon_image.image[i][j].r);
-			fscanf(f,"%d",&mon_image.image[i][j].g);
-			fscanf(f,"%d",&mon_image.image[i][j].b);
+			fscanf(f,"%d",&mi.image[i][j].r);
+			fscanf(f,"%d",&mi.image[i][j].g);
+			fscanf(f,"%d",&mi.image[i][j].b);
 		}
 	}
 	
 	FILE * f2 = fopen("cpy.ppm","w");
 	
 	fprintf(f2,"P3");
-	fprintf(f2,"%d\n",mon_image.l,mon_image.h);
-	fprintf(f2,"%d",mon_image.coul);
+	fprintf(f2,"%d\n", mi.l, mi.h);
+	fprintf(f2,"%d",mi.coul);
 	
-	for(int i=0; i<mon_image.h;j++)
+	for(int i=0; i<mi.h;j++)
 	{
-		for(int j=0;j<mon_image.j;j++)
+		for(int j=0;j<mi.j;j++)
 		{
-			fscanf(f2,"%d %d %d",mon_image.image[i][j].r,mon_image.image[i][j].g,mon_image.image[i][j].b);
+			fscanf(f2,"%d %d %d", mi.image[i][j].r, mi.image[i][j].g, mi.image[i][j].b);
 		}
 	}
 }
